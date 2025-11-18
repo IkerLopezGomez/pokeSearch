@@ -2,11 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router';
 import buscarPoke from '@/components/buscarPoke.vue';
 import seleccionarPoke from '@/components/seleccionarPokemon.vue';
 import infoPoke from '@/components/infoPokemon.vue';
+import gameEngine from '@/components/gameEngine.vue';
 
 const routes = [
     { path: '/buscar', component: buscarPoke },
-    { path: '/seleccionar', component: seleccionarPoke },
-    { path: '/info', component: infoPoke }
+    { path: '/lista', component: seleccionarPoke },
+    { path: '/info', component: infoPoke },
+    { path: '/game', component: gameEngine }
 ];
 
 const router = createRouter({
