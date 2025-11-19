@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <h1>Buscar Pokémon</h1>
+    <h1>Seleccionar pokemon</h1>
 </template>
 
 <style scoped>

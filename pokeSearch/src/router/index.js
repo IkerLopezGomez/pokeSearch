@@ -5,7 +5,7 @@ import infoPoke from "@/components/infoPokemon.vue";
 import favoritos from "@/components/favoritos.vue";
 
 const routes = [
-  { path: "/buscar", component: buscarPoke },
+  { path: "/", component: buscarPoke },
   { path: "/lista", component: seleccionarPoke },
   { path: "/info", component: infoPoke },
   { path: "/favoritos", component: favoritos },
