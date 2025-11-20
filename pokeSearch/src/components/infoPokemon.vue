@@ -79,6 +79,7 @@
             <p><strong>Altura:</strong> {{ pokemonDetails.height / 10 }} m</p>
             <p><strong>Peso:</strong> {{ pokemonDetails.weight / 10 }} kg</p>
         </div>
+        <button @click="$router.back()">Volver</button>
 </template>
 
 <style scoped>
