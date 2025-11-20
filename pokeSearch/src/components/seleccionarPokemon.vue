@@ -67,4 +67,5 @@ watch(
       </li>
     </ul>
   </div>
+  <button @click="$router.back()">Volver</button>
 </template>
