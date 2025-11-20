@@ -5,12 +5,9 @@
 
     const route = useRoute();
 
-    // 1. ELIMINAR variables no utilizadas en este componente (filteredPokemons, etc.)
-    // 2. ⭐ DEFINIR la variable reactiva que contendrá los detalles.
     const pokemonDetails = ref(null); 
     const isLoading = ref(false);
     
-    // 3. ⭐ CORREGIDO: getGeneration no necesita ser async
     function getGeneration(id){
         if (id <= 151){
             return "I";
@@ -36,7 +33,7 @@
         if (id <= 905){
             return "VIII";
         }
-        return "Desconocida"; // Añadir un valor por defecto
+        return "Desconocida"; 
     }
 
     async function loadPokemonDetails(){
@@ -44,13 +41,9 @@
         try{
             const data = await fetchPokemonDetails(route.params.name);
             const id = data.id;
-            
-            // 4. ⭐ CORREGIDO: Eliminar 'await'
             const generation = getGeneration(id); 
             
             const type = data.types.map(t => t.type.name).join(', ');
-            
-            // 5. ⭐ CORREGIDO: Asignar los datos a la variable reactiva 'pokemonDetails'
             pokemonDetails.value = {
                 id: data.id,
                 name: data.name,
@@ -69,8 +62,6 @@
     }
     
     onMounted(loadPokemonDetails);
-    
-    // Opcional pero recomendado: si la URL cambia, recarga los detalles
     watch(
       () => route.params.name,
       loadPokemonDetails
@@ -85,6 +76,8 @@
             <p><strong>Número de Pokédex:</strong> #{{ pokemonDetails.id }}</p>
             <p><strong>Generación:</strong> {{ pokemonDetails.generation }}</p>
             <p><strong>Tipo(s):</strong> {{ pokemonDetails.types.toUpperCase() }}</p>
+            <p><strong>Altura:</strong> {{ pokemonDetails.height / 10 }} m</p>
+            <p><strong>Peso:</strong> {{ pokemonDetails.weight / 10 }} kg</p>
         </div>
 </template>
 
