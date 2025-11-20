@@ -13,7 +13,7 @@ const currentQuery = ref('');
 async function loadAllPokemons() {
   isLoading.value = true;
   try {
-    const data = await fetchPokemonList(151);
+    const data = await fetchPokemonList(905);
     allPokemons.value = data;
     applyFilter(route.query.q || '');
   } catch (error) {
@@ -61,7 +61,9 @@ watch(
 
     <ul v-else>
       <li v-for="(pokemon, index) in filteredPokemons" :key="index">
-        {{ index + 1 }}. {{ pokemon.name.toUpperCase() }}
+        <router-link :to="`/pokemon/${pokemon.name}`">
+          {{ index + 1 }}. {{ pokemon.name.toUpperCase() }}
+        </router-link>
       </li>
     </ul>
   </div>

@@ -7,7 +7,7 @@ import favoritos from "@/components/favoritos.vue";
 const routes = [
   { path: "/", component: buscarPoke },
   { path: "/lista", component: seleccionarPoke },
-  { path: "/info", component: infoPoke },
+  { path: "/pokemon/:name", component: infoPoke },
   { path: "/favoritos", component: favoritos },
 ];
 
