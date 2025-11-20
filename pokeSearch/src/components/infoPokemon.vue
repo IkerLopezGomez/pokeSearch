@@ -72,16 +72,85 @@
         <h1>
              {{ pokemonDetails ? pokemonDetails.name.toUpperCase() : 'Cargando...' }}
         </h1>
-        <div v-if="pokemonDetails">
+        <div v-if="pokemonDetails" class="pokemon-card">
             <p><strong>Número de Pokédex:</strong> #{{ pokemonDetails.id }}</p>
             <p><strong>Generación:</strong> {{ pokemonDetails.generation }}</p>
             <p><strong>Tipo(s):</strong> {{ pokemonDetails.types.toUpperCase() }}</p>
             <p><strong>Altura:</strong> {{ pokemonDetails.height / 10 }} m</p>
             <p><strong>Peso:</strong> {{ pokemonDetails.weight / 10 }} kg</p>
+            <button @click="$router.back()">Volver</button>
         </div>
-        <button @click="$router.back()">Volver</button>
 </template>
 
 <style scoped>
+/* Contenedor principal para centrar y dar espacio */
+h1 {
+    color: #36454F; /* Gris oscuro para el encabezado */
+    text-align: center;
+    margin-bottom: 30px;
+}
 
+.pokemon-card {
+    /* Estructura de la tarjeta */
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    transition: transform 0.2s;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-3px); /* Pequeño efecto al pasar el ratón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo para los detalles del texto */
+.pokemon-card p {
+    margin: 8px 0;
+    padding: 5px 10px;
+    border-left: 4px solid #F08080; /* Color distintivo (rojo claro) */
+    background-color: #F8F8F8; /* Fondo ligero para la línea */
+    font-size: 1.1em;
+}
+
+/* Estilo específico para las etiquetas fuertes (strong) */
+.pokemon-card strong {
+    color: #4682B4; /* Azul acero para las etiquetas (e.g., "Número de Pokédex:") */
+    font-weight: 600;
+}
+button {
+    /* Diseño y tamaño */
+    display: inline-block;
+    padding: 10px 20px;
+    margin: auto; 
+    width: auto;
+    
+    /* Apariencia */
+    background-color: #4682B4; /* Azul Acero (color primario) */
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none; 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    
+    /* Sombra y transición */
+    box-shadow: 0 4px #2F4F4F; 
+    transition: all 0.1s ease;
+}
+
+button:hover {
+    background-color: #5B9BD5; 
+}
+
+button:active {
+    /* Efecto de "clic" */
+    transform: translateY(4px); 
+    box-shadow: 0 0 #2F4F4F; 
+}
 </style>
