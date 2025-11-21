@@ -69,3 +69,109 @@ watch(
   </div>
   <button @click="$router.back()">Volver</button>
 </template>
+<style scoped>
+/* Contenedor principal para centrar y dar espacio */
+.list-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Fondo muy claro para el contenedor */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Títulos y Mensajes --- */
+
+h2 {
+    color: #36454F; /* Gris oscuro */
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    margin: 15px 0;
+    color: #555;
+    font-size: 1.1em;
+}
+
+strong {
+    color: #4682B4; /* Azul Acero para destacar la búsqueda */
+}
+
+/* --- Lista de Resultados (ul) --- */
+
+ul {
+    list-style: none; /* Quita los puntos predeterminados */
+    padding: 0;
+    margin: 20px 0;
+}
+
+li {
+    /* Estructura de la tarjeta */
+    margin: 10px 0;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+li:hover {
+    transform: translateY(-2px); /* Pequeño efecto al pasar el ratón */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: #4682B4; /* Destaca el borde al pasar el ratón */
+}
+
+/* --- Enlaces (router-link) --- */
+
+li a {
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: #36454F; /* Gris oscuro para el texto del enlace */
+    font-size: 1.15em;
+    display: block; /* Hace que todo el <li> sea clicable a través del enlace */
+    font-weight: 500;
+}
+
+li a:hover {
+    color: #4682B4; /* Azul Acero al pasar el ratón */
+}
+
+/* --- Botón "Volver" (Estilos consistentes con el componente de Búsqueda) --- */
+
+button {
+    /* Diseño y tamaño */
+    display: block; 
+    width: 100%;
+    max-width: 200px; /* Limita el ancho del botón */
+    padding: 10px 20px;
+    margin: 30px auto 0 auto; /* Centra el botón y da espacio arriba */
+    
+    /* Apariencia */
+    background-color: #F08080; /* Rojo claro/coral para la acción de "Volver" */
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    
+    /* Sombra y transición */
+    box-shadow: 0 4px #CD5C5C; /* Sombra más oscura para el rojo */
+    transition: all 0.1s ease;
+}
+
+button:hover {
+    background-color: #FA8072; /* Color más claro al pasar el ratón */
+}
+
+button:active {
+    /* Efecto de "clic" */
+    transform: translateY(4px); 
+    box-shadow: 0 0 #CD5C5C; 
+}
+</style>
