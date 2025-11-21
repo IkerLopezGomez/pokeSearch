@@ -2,6 +2,9 @@
     import { ref, onMounted, watch} from 'vue';
     import { useRoute } from 'vue-router';
     import { fetchPokemonDetails } from '../../services/communicationManager.js';
+    import { useFavoritesStore } from '../favorites/favorites.js';
+
+    const store = useFavoritesStore();
 
     const route = useRoute();
 
@@ -60,6 +63,12 @@
             isLoading.value = false;
         }
     }
+
+    async function addToFavorites(){
+        if (pokemonDetails.value) {
+            await store.addFavorite(pokemonDetails.value);
+        }
+    }
     
     onMounted(loadPokemonDetails);
     watch(
@@ -79,6 +88,7 @@
             <p><strong>Altura:</strong> {{ pokemonDetails.height / 10 }} m</p>
             <p><strong>Peso:</strong> {{ pokemonDetails.weight / 10 }} kg</p>
             <button @click="$router.back()">Volver</button>
+            <button @click="addToFavorites()">Añadir a Favoritos</button>
         </div>
 </template>
 

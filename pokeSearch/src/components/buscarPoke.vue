@@ -1,7 +1,8 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import { fetchPokemonList } from "../../services/communicationManager.js";
+import { fetchPokemonDetails, fetchPokemonList } from "../../services/communicationManager.js";
 import { useRouter } from "vue-router";
+import { useFavoritesStore } from "../favorites/favorites.js";
 
 const router = useRouter();
 const searchTerm = ref("");
@@ -14,18 +15,25 @@ function goToPokemonList() {
   });
 }
 
+const favoritesStore = useFavoritesStore();
+
 onMounted(async () => {
 });
 </script>
 
 <template>
   <h1>Buscar Pokémon</h1>
-
+  <div v-if="favoritesStore.favorites.length > 0">
+    <h2>Pokémon Favoritos:</h2>
+    <ul>
+      <li v-for="id in favoritesStore.favorites" :key="id">{{ favoritesStore.getPokemonName(id) }}</li>
+    </ul>
+  </div>
   <input
     type="text"
     v-model="searchTerm"
     placeholder="Escribe el nombre de un Pokémon..."
-    :disabled="isLoading"
+    :disabled="isLoading" 
   />
 
   <button @click="goToPokemonList" :disabled="isLoading">
