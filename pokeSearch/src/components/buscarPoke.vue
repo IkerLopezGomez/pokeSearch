@@ -23,12 +23,6 @@ onMounted(async () => {
 
 <template>
   <h1>Buscar Pokémon</h1>
-  <div v-if="favoritesStore.favorites.length > 0">
-    <h2>Pokémon Favoritos:</h2>
-    <ul>
-      <li v-for="id in favoritesStore.favorites" :key="id">{{ favoritesStore.getPokemonName(id) }}</li>
-    </ul>
-  </div>
   <input
     type="text"
     v-model="searchTerm"
@@ -38,6 +32,9 @@ onMounted(async () => {
 
   <button @click="goToPokemonList" :disabled="isLoading">
     {{ isLoading ? "Cargando..." : "Buscar Pokémon" }}
+  </button>
+  <button @click="router.push('/favoritos')">
+    Ver Favoritos
   </button>
 </template>
 <style scoped>
