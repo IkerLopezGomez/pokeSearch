@@ -34,7 +34,7 @@ onMounted(async () => {
     {{ isLoading ? "Cargando..." : "Buscar Pokémon" }}
   </button>
   <button @click="router.push('/favoritos')">
-    Ver Favoritos
+    Equipo Pokémon
   </button>
 </template>
 <style scoped>

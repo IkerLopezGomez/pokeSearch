@@ -88,7 +88,7 @@
             <p><strong>Altura:</strong> {{ pokemonDetails.height / 10 }} m</p>
             <p><strong>Peso:</strong> {{ pokemonDetails.weight / 10 }} kg</p>
             <button @click="$router.back()">Volver</button>
-            <button @click="addToFavorites()">Añadir a Favoritos</button>
+            <button @click="addToFavorites()">Capturar</button>
         </div>
 </template>
 
